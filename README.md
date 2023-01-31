@@ -44,7 +44,3 @@ This is a QR Code generator buillt with HTML, CSS, and JavaScript. It takes an i
 - My Website - [oheneadjei.com](https://oheneadjei.com)
 - Twitter - [@oheneadj](https://www.twitter.com/oheneadj)
 
-
-
-
-# qrcode-generator
