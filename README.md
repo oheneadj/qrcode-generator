@@ -1,4 +1,4 @@
-# QR Code Generator | Project 1 of 7 in 7 Projects in 7 Days Challenge 
+## QR Code Generator | Project 1 of 7 Projects in 7 Days Challenge 
 
 This is Project 1 in my 7 Projects in 7 Days Challenge. I use these challenges to help me improve my coding skills by building realistic projects in the shortest possible time.
 
@@ -8,8 +8,8 @@ This is Project 1 in my 7 Projects in 7 Days Challenge. I use these challenges t
   - [Screenshot](#screenshot)
   - [Links](#links)
 - [My process](#my-process)
-  - [Built with](#built-with)
-  - [Useful resources](#useful-resources)
+- [Built with](#built-with)
+- [Useful resources](#useful-resources)
 - [Author](#author)
 
 ## Overview
@@ -21,10 +21,10 @@ This is a QR Code generator buillt with HTML, CSS, and JavaScript. It takes an i
 
 ### Links
 
-- Live App URL: [view live site](https://oheneadj.github.io/QR-Code-Component/)
+- Try QRCode Generator: [Use App](https://oheneadj.github.io/QR-Code-Component/)
 
 ### My Process
-- [Watch My Process On My YouTube Channel](https://www.youtube.com/@oheneadj)
+- [Watch The Step-by-Step Process On My YouTube Channel](https://www.youtube.com/@oheneadj)
 
 ### Built with
 
@@ -41,7 +41,7 @@ This is a QR Code generator buillt with HTML, CSS, and JavaScript. It takes an i
 
 ## Author
 
-- Website - [Ohene Adjei](https://oheneadjei.com)
+- My Website - [oheneadjei.com](https://oheneadjei.com)
 - Twitter - [@oheneadj](https://www.twitter.com/oheneadj)
 
 
