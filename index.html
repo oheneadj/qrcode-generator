@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | QR code component</title>
+
+  <!--stylesheet 👍 -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+
+    body{
+      font-family: 'Outfit', sans-serif;
+      background-color: hsl(212, 45%, 89%);
+    }
+
+    .card{
+      background-color: hsl(0, 0%, 100%);
+      padding: 15px;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center ;
+      width: 290px;
+      margin: 100px auto;
+      
+    }
+
+    img, h2, p {
+      margin: auto 1px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    
+
+    h2{
+      color:hsl(218, 44%, 22%);
+      font-size: 20px;
+      text-align: center;
+      font-weight: 700;
+    }
+    p{
+      color:hsl(220, 15%, 55%);
+      font-size: 15px;
+      font-weight: 400;
+    }
+
+    img{
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    /* White: hsl(0, 0%, 100%)
+- Light gray: hsl(212, 45%, 89%)
+- Grayish blue: hsl(220, 15%, 55%)
+- Dark blue: hsl(218, 44%, 22%) */
+    .btn{
+      color: white;
+      background-color:#2C7DFA ;
+      border: none;
+      padding: 10px 16px;
+      border-radius:10px;
+      cursor: pointer;
+    }
+    .btn:hover{
+      background-color: #3685FF;
+    }
+    input[type=text]{
+    width:80%;
+    border:2px solid #aaa;
+    border-radius:4px;
+    margin:10px 0;
+    outline:none;
+    padding:8px;
+    box-sizing:border-box;
+    transition:.3s;
+  }
+  
+  input[type=text]:focus{
+    border-color:#2C7DFA;
+    box-shadow:0 0 8px 0 #2C7DFA;
+  }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Free QR Code Generator</h2>
+    <p>Paste or type into the input box and generate and download your QR Code</p>
+    <input type="text">
+    <button class="btn" type="submit"> Generate Code</button>
+  </div>
+  <div class="card">
+    <img src="./images/image-qr-code.png" loading="lazy" alt="QR Code" />
+    <button class="btn" type="submit"> Download QR Code</button>
+  </div>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://oheneadjei.com">Ohene Adjei</a>.
+  </div>
+
+  <script>
+
+
+let btn = document.querySelector(".button");
+let qr_code_element = document.querySelector(".qr-code");
+
+btn.addEventListener("click", () => {
+  let user_input = document.querySelector("#input_text");
+  if (user_input.value != "") {
+    if (qr_code_element.childElementCount == 0) {
+      generate(user_input);
+    } else {
+      qr_code_element.innerHTML = "";
+      generate(user_input);
+    }
+  } else {
+    console.log("not valid input");
+    qr_code_element.style = "display: none";
+  }
+});
+
+function generate(user_input) {
+  qr_code_element.style = "";
+
+  var qrcode = new QRCode(qr_code_element, {
+    text: `${user_input.value}`,
+    width: 180, //128
+    height: 180,
+    colorDark: "#000000",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.H
+  });
+
+  let download = document.createElement("button");
+  qr_code_element.appendChild(download);
+
+  let download_link = document.createElement("a");
+  download_link.setAttribute("download", "qr_code.png");
+  download_link.innerHTML = `Download <i class="fa-solid fa-download"></i>`;
+
+  download.appendChild(download_link);
+
+  let qr_code_img = document.querySelector(".qr-code img");
+  let qr_code_canvas = document.querySelector("canvas");
+
+  if (qr_code_img.getAttribute("src") == null) {
+    setTimeout(() => {
+      download_link.setAttribute("href", `${qr_code_canvas.toDataURL()}`);
+    }, 300);
+  } else {
+    setTimeout(() => {
+      download_link.setAttribute("href", `${qr_code_img.getAttribute("src")}`);
+    }, 300);
+  }
+}
+
+generate({
+  value: "https://murtuzaalisurti.github.io/qr"
+});
+
+
+  </script>
+</body>
+</html>
